@@ -2,17 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>flowleague · Portfolio</title>
+  <title>flowleague · coming soon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #666666;
-      --border: #e0e0e0;
-      --accent: #111111;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,537 +14,83 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
                    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
+      background: #ffffff;
+      color: #111111;
       -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 32px 20px 80px;
-    }
-
-    /* 顶部导航 */
-
-    header {
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 40px;
+      justify-content: center;
     }
 
-    .brand {
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .logo-box {
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      border: 1px solid #e0e0e0;
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 4px;
+      justify-content: center;
       overflow: hidden;
-      border: 1px solid var(--border);
       background: #f8f8f8;
-      flex-shrink: 0;
     }
 
-    .brand-logo img {
+    .logo-box img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-name {
-      font-size: 16px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .brand-sub {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    nav a {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--fg);
-      transition: width 0.18s ease-out;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* Hero */
-
-    .hero {
-      padding: 32px 0 40px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 40px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 40px;
-    }
-
-    .hero-title {
-      font-size: clamp(26px, 4vw, 34px);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      line-height: 1.4;
-    }
-
-    .hero-desc {
+    .coming {
       font-size: 14px;
-      color: var(--muted);
-      max-width: 420px;
-    }
-
-    .hero-meta {
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .hero-meta-label {
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 11px;
+      color: #666666;
+    }
+
+    .name {
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
       color: #999999;
-    }
-
-    .hero-meta-item {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* section 通用 */
-
-    section {
-      margin-bottom: 48px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
-    }
-
-    .section-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    .section-note {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* Works */
-
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .work-card {
-      border: 1px solid var(--border);
-      padding: 14px 14px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .work-thumb {
-      background: #f4f4f4;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #aaaaaa;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .work-title {
-      font-size: 14px;
-    }
-
-    .work-meta {
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .work-meta span {
-      white-space: nowrap;
-    }
-
-    .work-desc {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* Writing */
-
-    .writing-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .writing-item {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 10px;
-    }
-
-    .writing-meta {
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 2px;
-    }
-
-    .writing-title {
-      font-size: 14px;
-    }
-
-    .writing-abstract {
-      font-size: 12px;
-      color: var(--muted);
       margin-top: 4px;
     }
 
-    /* About & Contact */
-
-    .about {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 32px;
-      font-size: 13px;
-    }
-
-    .about p + p {
-      margin-top: 10px;
-    }
-
-    .about-list {
-      list-style: none;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .about-list li + li {
-      margin-top: 6px;
-    }
-
-    .contact {
-      font-size: 13px;
-    }
-
-    .contact p + p {
-      margin-top: 8px;
-    }
-
     footer {
+      position: fixed;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      text-align: center;
       font-size: 11px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 14px;
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 768px) {
-      .page {
-        padding: 18px 14px 60px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      nav {
-        gap: 16px;
-        font-size: 11px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .works-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-      }
+      color: #aaaaaa;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- 顶部 -->
-    <header>
-      <div class="brand">
-        <div class="brand-logo">
-          <!-- 用你的 LOGO：请把 logo 文件命名为 logo.png 放在和 index.html 同一文件夹 -->
-          <img src="logo.png" alt="flowleague logo">
-        </div>
-        <div class="brand-text">
-          <div class="brand-name">flowleague</div>
-          <div class="brand-sub">architecture · space · drawing</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#works">Works</a>
-        <a href="#writing">Writing</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <main class="wrap">
+    <div class="logo-box">
+      <!-- 把 logo.png 放在和 index.html 同一文件夹 -->
+      <img src="logo.png" alt="flowleague logo">
+    </div>
+    <div class="coming">coming soon</div>
+    <div class="name">flowleague</div>
+  </main>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div>
-        <h1 class="hero-title">
-          Architecture, drawing,<br>
-          and speculative spaces.
-        </h1>
-      </div>
-      <div class="hero-meta">
-        <div>
-          <div class="hero-meta-label">Statement</div>
-          <p class="hero-desc">
-            通过抽象的平面与空间练习，观察建筑在气候、未来与个体之间的张力。这个页面是一个开放的草图本，而不是一个完成的作品终点。
-          </p>
-        </div>
-        <div>
-          <div class="hero-meta-label">Currently</div>
-          <div class="hero-meta-item">
-            <span>Location</span>
-            <span>Kwai Chung / Online</span>
-          </div>
-          <div class="hero-meta-item">
-            <span>Focus</span>
-            <span>architecture · drawing · climate</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Works -->
-    <section id="works">
-      <div class="section-head">
-        <h2 class="section-title">Selected works</h2>
-        <div class="section-note">建筑 / 绘画 / 概念模型（可慢慢补充与替换）</div>
-      </div>
-
-      <div class="works-grid">
-        <!-- 项目 1 -->
-        <article class="work-card">
-          <div class="work-thumb">
-            PROJECT IMAGE
-          </div>
-          <div class="work-meta">
-            <span>2024 · 概念</span>
-            <span>urban / climate</span>
-          </div>
-          <h3 class="work-title">Floating Sections for a Future City</h3>
-          <p class="work-desc">
-            一系列关于「漂浮剖面」的绘画练习，想象城市被拆解成不同气候层次，人只在其中偶然停留。
-          </p>
-        </article>
-
-        <!-- 项目 2 -->
-        <article class="work-card">
-          <div class="work-thumb">
-            PROJECT IMAGE
-          </div>
-          <div class="work-meta">
-            <span>2023 · 绘画</span>
-            <span>abstract / ink</span>
-          </div>
-          <h3 class="work-title">Rooms That Never Opened</h3>
-          <p class="work-desc">
-            一组抽象房间的墨线图，尝试把抑郁中的封闭感转译为空间关系，而不是心理叙事。
-          </p>
-        </article>
-
-        <!-- 项目 3 -->
-        <article class="work-card">
-          <div class="work-thumb">
-            PROJECT IMAGE
-          </div>
-          <div class="work-meta">
-            <span>2022 · 研究</span>
-            <span>education / finland</span>
-          </div>
-          <h3 class="work-title">Notes on Finnish School Architecture</h3>
-          <p class="work-desc">
-            对芬兰学校建筑案例的阅读笔记与草图，关注开放学习空间与日常生活之间微妙的距离。
-          </p>
-        </article>
-
-        <!-- 项目 4 -->
-        <article class="work-card">
-          <div class="work-thumb">
-            PROJECT IMAGE
-          </div>
-          <div class="work-meta">
-            <span>进行中</span>
-            <span>ongoing</span>
-          </div>
-          <h3 class="work-title">Flow League Sketchbook</h3>
-          <p class="work-desc">
-            持续更新的线上速写本：建成与未建成、现实与虚构的碎片被放在同一平面上，接受被误读。
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Writing -->
-    <section id="writing">
-      <div class="section-head">
-        <h2 class="section-title">Writing & notes</h2>
-        <div class="section-note">短文、阅读记录与教学相关想法</div>
-      </div>
-
-      <div class="writing-list">
-        <article class="writing-item">
-          <div class="writing-meta">2024 · note</div>
-          <h3 class="writing-title">建筑教育里，被忽略的「懒惰」</h3>
-          <p class="writing-abstract">
-            关于不前进、停止工作、停在原地观察的权利。也许「不产出」也是建筑教育里一种重要的练习。
-          </p>
-        </article>
-
-        <article class="writing-item">
-          <div class="writing-meta">2023 · fragment</div>
-          <h3 class="writing-title">当气候成为一种空间材料</h3>
-          <p class="writing-abstract">
-            气候变化通常被当作背景数据，但在这里，它被当作构成空间的首要材料——比混凝土更难以控制。
-          </p>
-        </article>
-
-        <article class="writing-item">
-          <div class="writing-meta">ongoing · note</div>
-          <h3 class="writing-title">在互联网上练习「精确说话」</h3>
-          <p class="writing-abstract">
-            我尝试用更慢的语速、更少的词，把复杂的感受写进极简的句子里，哪怕这些句子还不完整。
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- About & Contact -->
-    <section id="about">
-      <div class="section-head">
-        <h2 class="section-title">About</h2>
-        <div class="section-note">一个小的自我说明，可以随时重写</div>
-      </div>
-
-      <div class="about">
-        <div>
-          <p>
-            flowleague 是一个个人实验性的名字，介于工作室与日记本之间。这里收集的是与建筑、绘画、未来与抑郁相关的片段，而不是完成品。
-          </p>
-          <p>
-            我关注芬兰建筑、建筑教育、人类的未来、气候变化与可持续发展，但也同样被身边那些未被看见的小空间所困扰。
-          </p>
-          <p>
-            这个网站更像一个慢慢被填充的纸本，允许空白、停顿和迟到的作品。
-          </p>
-        </div>
-        <div>
-          <ul class="about-list">
-            <li><strong>关注：</strong> 建筑、抽象绘画、教育、气候、未来城市</li>
-            <li><strong>状态：</strong> 暂时无业，在互联网上持续练习</li>
-            <li><strong>形式：</strong> 静态网页、低技术成本、不依赖社交平台算法</li>
-            <li><strong>语言：</strong> 中文为主，偶尔英文注释</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-head">
-        <h2 class="section-title">Contact</h2>
-        <div class="section-note">如果你也在犹豫，可以写信来</div>
-      </div>
-
-      <div class="contact">
-        <p>
-          如果你想一起讨论建筑、抽象艺术、教育或关于未来的焦虑，可以通过邮件联系我。哪怕只是分享一张你喜欢的平面图或一段空间记忆，也欢迎。
-        </p>
-        <p>
-          Email：<a href="mailto:info.flowlegaue@gmail.com">info.flowlegaue@gmail.com</a><br>
-          （请把这里替换成你的真实邮箱）
-        </p>
-      </div>
-    </section>
-
-    <footer>
-      <span>© <span id="year"></span> flowleague</span>
-      <span>built as a static page · no tracking</span>
-    </footer>
-  </div>
+  <footer>
+    © <span id="year"></span> flowleague · under construction
+  </footer>
 
   <script>
-    // 自动填充年份
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
